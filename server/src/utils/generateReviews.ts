@@ -24,7 +24,18 @@ export function generateReviews(
     const getRandom = (arr: string[]) =>
         arr[faker.number.int({ min: 0, max: arr.length - 1 })];
 
-    const count = Math.floor(avgReviews);
+    const baseCount = Math.floor(avgReviews);
+    const fraction = avgReviews - baseCount;
+    let count = baseCount;
+    if (fraction > 0) {
+        const rand = faker.number.float({ min: 0, max: 1 });
+        if (rand < fraction) {
+            count += 1;
+        }
+    }
+
+    if (count === 0) return [];
+
     const ratings: number[] = [];
     let sum = 0;
 
