@@ -54,11 +54,11 @@ app.get('/api/books', async (req, res) => {
                 const author = bookFaker.person.fullName();
                 const publisher = bookFaker.company.name();
 
-                const likes = generateLikes(Number(avgLikes), String(bookSeed + 1));
+                const rating = generateLikes(Number(avgLikes), String(bookSeed + 1));
 
                 const reviewFaker = new Faker({ locale: [localeMap[validatedLang]] });
                 reviewFaker.seed(bookSeed + 2);
-                const reviews = generateReviews(Number(avgReviews), validatedLang, bookSeed + 2, likes);
+                const reviews = generateReviews(Number(avgReviews), validatedLang, bookSeed + 2, rating);
 
                 const coverUrl = `https://picsum.photos/seed/book${id}/200/300`;
 
@@ -68,7 +68,7 @@ app.get('/api/books', async (req, res) => {
                     title,
                     author,
                     publisher,
-                    likes,
+                    rating,
                     reviews,
                     coverUrl,
                 };

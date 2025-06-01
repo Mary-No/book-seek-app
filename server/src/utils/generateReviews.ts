@@ -13,7 +13,7 @@ export function generateReviews(
     avgReviews: number,
     locale: Locale,
     seed: number,
-    like: number
+    likes: number
 ): Review[] {
     if (avgReviews <= 0) return [];
 
@@ -41,7 +41,7 @@ export function generateReviews(
 
     for (let i = 0; i < count; i++) {
         const remaining = count - i;
-        const remainingTarget = like * count - sum;
+        const remainingTarget = likes * count - sum;
         const min = Math.max(1, Math.floor(remainingTarget - (remaining - 1) * 5));
         const max = Math.min(5, Math.ceil(remainingTarget - (remaining - 1)));
         const rating = faker.number.int({ min, max });
