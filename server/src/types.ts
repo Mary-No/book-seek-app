@@ -1,14 +1,3 @@
-export type Book = {
-    id: number;
-    isbn: string;
-    title: string;
-    author: string;
-    publisher: string;
-    likes: number;
-    reviews: Review[];
-    coverUrl: string;
-}
-
 export type Review = {
     text: string;
     author: string;

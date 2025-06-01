@@ -1,8 +1,5 @@
 import seedrandom from 'seedrandom'
-
-const SUPPORTED_LOCALES = ['en', 'ru', 'de'] as const;
-type Locale = (typeof SUPPORTED_LOCALES)[number];
-
+import { Locale, SUPPORTED_LOCALES } from '../types';
 
 async function fetchWords(meaning: string, max = 50): Promise<string[]> {
     const url = `https://api.datamuse.com/words?ml=${encodeURIComponent(meaning)}&max=${max}`;

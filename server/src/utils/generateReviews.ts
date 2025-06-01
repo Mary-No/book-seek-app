@@ -1,13 +1,8 @@
 import { Faker } from "@faker-js/faker";
-import { Locale } from "../types";
+import { Locale, Review } from "../types";
 import { localeMap } from "../index";
 import { reviewPhrases } from "./reviewPhrases";
 
-type Review = {
-    text: string;
-    author: string;
-    rating: number;
-};
 
 export function generateReviews(
     avgReviews: number,
