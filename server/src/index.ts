@@ -37,6 +37,7 @@ app.get('/api/books', async (req, res) => {
         const combinedSeed = Number(seed) + Number(page);
         faker.seed(combinedSeed);
 
+
         const books = await Promise.all(
             Array.from({ length: 10 }, async (_, i) => {
                 const id = i + 1 + (Number(page) - 1) * 10;
@@ -50,8 +51,15 @@ app.get('/api/books', async (req, res) => {
                 const bookFaker = new Faker({ locale: [localeMap[validatedLang]] });
                 bookFaker.seed(bookSeed);
 
+
                 const isbn = bookFaker.string.numeric(13);
-                const author = bookFaker.person.fullName();
+                const author1 = bookFaker.person.fullName();
+                let author = author1;
+
+                if (bookFaker.number.float({ min: 0, max: 1 }) < 0.3) {
+                    const author2 = bookFaker.person.fullName();
+                    author = `${author1} & ${author2}`;
+                }
                 const publisher = bookFaker.company.name();
 
                 const rating = generateLikes(Number(avgLikes), String(bookSeed + 1));
