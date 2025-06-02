@@ -1,0 +1,15 @@
+.filtersContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5%;
+  margin: 40px 0 30px 0;
+}
+.filtersBlock{
+  display: flex;
+  flex-direction: column;
+  label{
+    margin-bottom: 8px;
+  }
+}
