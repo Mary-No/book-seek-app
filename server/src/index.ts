@@ -14,7 +14,7 @@ export const localeMap: Record<Locale, LocaleDefinition> = { en, ru, de };
 app.use(cors({
     origin: [
         'http://localhost:5173',
-        'https://mary-no.github.io/book-seek-app/',
+        'https://Mary-No.github.io/book-seek-app',
     ],
     credentials: true,
 }));
